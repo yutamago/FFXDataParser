@@ -47,7 +47,7 @@ public abstract class ScriptFuncLib {
         initialized = true;
         FUNCS = new ScriptFunc[0x10000];
         putFuncWithIdx(0x0000, new ScriptFunc("waitFrames", "unknown", null, new ScriptField("frames", "int")));
-        putUnknownFunc(0x0001, 1);
+        putFuncWithIdx(0x0001, new ScriptFunc("loadActor", "unknown", null, new ScriptField("actorProperties", "int")));
         putUnknownFunc(0x0002, 3);
         putUnknownFunc(0x0003, 1);
         putUnknownFunc(0x0004, 1);
@@ -76,7 +76,7 @@ public abstract class ScriptFuncLib {
         putUnknownFunc(0x002A, 1);
         putUnknownFunc(0x002B, 1);
         putUnknownFunc(0x002C, 1);
-        putUnknownFunc(0x002D, 1);
+        putFuncWithIdx(0x002D, new ScriptFunc("setMotionPosThreshold", "int", null, new ScriptField("posThreshold", "int")));
         putUnknownFunc(0x002E, 1);
         putUnknownFunc(0x002F, 1);
         putUnknownFunc(0x0030, 1);
@@ -111,23 +111,23 @@ public abstract class ScriptFuncLib {
         putUnknownFunc(0x005E, 0);
         putUnknownFunc(0x005F, 0);
         putUnknownFunc(0x0060, 1);
-        putUnknownFunc(0x0061, 1); // noclip: collision detection
-        putUnknownFunc(0x0062, 1); // noclip: collision detection
-        putUnknownFunc(0x0063, 1); // noclip: collision detection
+        putFuncWithIdx(0x0061, new ScriptFunc("setInteractRadiusAndEnableCollision", "int", null, new ScriptField("interactRadius", "int")));
+        putFuncWithIdx(0x0062, new ScriptFunc("setOtherRadiusAndEnableCollision", "int", null, new ScriptField("otherRadius", "int")));
+        putFuncWithIdx(0x0063, new ScriptFunc("setFacingAngleRangeAndEnableCollision", "int", null, new ScriptField("facingAngleRange", "int")));
         putFuncWithIdx(0x0064, new ScriptFunc("displayFieldSubtitle", "unknown", null, new ScriptField("boxIndex", "int"), new ScriptField("string")));
         putUnknownFunc(0x0065, 4);
         putUnknownFunc(0x0066, 2);
         putUnknownFunc(0x0069, 3);
         putUnknownFunc(0x006A, 2);
         putUnknownFunc(0x006B, 1);
-        putUnknownFunc(0x006C, 1);
-        putUnknownFunc(0x006D, 1);
-        putUnknownFunc(0x006E, 1);
+        putFuncWithIdx(0x006C, new ScriptFunc("setMotionStartSpeed", "int", null, new ScriptField("speed", "int")));
+        putFuncWithIdx(0x006D, new ScriptFunc("setMotionEulerStep1", "int", null, new ScriptField("step", "int")));
+        putFuncWithIdx(0x006E, new ScriptFunc("setMotionEulerStep2", "int", null, new ScriptField("step", "int")));
         putUnknownFunc(0x006F, 1); // noclip: get/set velocity1?
         putUnknownFunc(0x0070, 1); // noclip: get/set velocity2?
         putUnknownFunc(0x0071, 1); // noclip: get/set velocity3?
         putUnknownFunc(0x0074, 1); // noclip: get/set frames?
-        putUnknownFunc(0x0076, 0); // noclip: get controller type
+        putFuncWithIdx(0x0076, new ScriptFunc("getControllerType", "controllerType", null, false));
         putUnknownFunc(0x0077, 1);
         putUnknownFunc(0x0078, 1);
         putUnknownFunc(0x007A, 2); // noclip: collision detection
@@ -654,6 +654,8 @@ public abstract class ScriptFuncLib {
         putUnknownFunc(0x508E, 1);
         putUnknownFunc(0x508F, 1);
         putUnknownFunc(0x5090, 1);
+
+        /* Camera functions */
         putUnknownFunc(0x6000, "camSleep", 1);
         putUnknownFunc(0x6001, "camWakeUp", 1);
         putUnknownFunc(0x6002, "camSetPos", 3);
@@ -791,6 +793,8 @@ public abstract class ScriptFuncLib {
         putUnknownFunc(0x6086, "refGetRealPos", 3);
         putUnknownFunc(0x6087, "refReset", 0);
         putUnknownFunc(0x6088, "camReset", 0);
+
+        /** Battle functions **/
         putUnknownFunc(0x7000, "btlTerminateAction", 0);
         putUnknownFunc(0x7001, "btlSetRandPosFlag", 1);
         putFuncWithIdx(0x7002, new ScriptFunc("launchBattle", "unknown", "btlExe", new ScriptField("btlIndex", "int"), new ScriptField("transition?", "int")));

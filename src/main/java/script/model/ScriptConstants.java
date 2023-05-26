@@ -210,6 +210,22 @@ public abstract class ScriptConstants {
         putEnum("damageType", 0x01, "Physical");
         putEnum("damageType", 0x02, "Magical");
 
+        putEnum("controllerType", 0x0, "None", "NONE");
+        putEnum("controllerType", 0x1, "Motion", "MOTION");
+        putEnum("controllerType", 0x2, "PlayerEdge", "PLAYER_EDGE");
+        putEnum("controllerType", 0x3, "PlayerZone", "PLAYER_ZONE");
+        putEnum("controllerType", 0x4, "Unknown", "UNKNOWN");
+        putEnum("controllerType", 0x5, "Edge", "EDGE");
+        putEnum("controllerType", 0x6, "Zone", "ZONE");
+
+        putEnum("actorType", 0x0000, "PlayerCharacter", "PC");
+        putEnum("actorType", 0x0000, "Monster", "MON");
+        putEnum("actorType", 0x0000, "NPC", "NPC");
+        putEnum("actorType", 0x0000, "Summoning", "SUM");
+        putEnum("actorType", 0x0000, "Weapon", "WEP");
+        putEnum("actorType", 0x0000, "Object", "OBJ");
+        putEnum("actorType", 0x0000, "Skill", "SKL");
+
         putEnum("actor", 0x0000, "Tidus", "PC_TIDUS");
         putEnum("actor", 0x0001, "Yuna", "PC_YUNA");
         putEnum("actor", 0x0002, "Auron", "PC_AURON");
